@@ -101,7 +101,8 @@ private JsonNode node;
 	  	jsonpath="C:\\Users\\HUILINGAlanShen\\eclipse-workspace\\AlanTest\\src\\configuration\\";
 	  	String jsonname="alantest.json";
 	  	System.out.println(jsonpath + jsonname);
-	  	jsonpath="C:/Users/HUILINGAlanShen/eclipse-workspace/AlanTest/src/configuration/";
+	  	jsonpath="C:/Users/sheny/git/alantest/src/configuration/";
+	  	//C:\Users\sheny\git\alantest\src\configuration\
 	  	//mapper.writeValue(new File(jsonpath + jsonname), json);
 	  	mapper.readValue("\""+jsonpath + jsonname+"\"", json.getClass());
 	  	node=mapper.readTree(new File(jsonpath+jsonname));
