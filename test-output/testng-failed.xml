@@ -3,19 +3,15 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.selenium.test.RossteStone">
+      <class name="com.selenium.test.BOM">
         <methods>
-          <include name="beforeSuite"/>
-          <include name="beforeMethod"/>
+          <include name="f" invocation-numbers="0 1"/>
           <include name="beforeTest"/>
-          <include name="f" invocation-numbers="0"/>
-          <include name="afterSuite"/>
-          <include name="beforeClass"/>
           <include name="afterMethod"/>
+          <include name="beforeMethod"/>
           <include name="afterTest"/>
-          <include name="afterClass"/>
         </methods>
-      </class> <!-- com.selenium.test.RossteStone -->
+      </class> <!-- com.selenium.test.BOM -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
