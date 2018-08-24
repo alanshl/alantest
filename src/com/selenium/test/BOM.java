@@ -34,7 +34,7 @@ public class BOM {
 		  
 		  WebDriver driver=new RemoteWebDriver(service.getUrl(), DesiredCapabilities.chrome());
 		  
-		  driver.get("http://192.168.1.61:8080/static/index.html#");
+		  driver.get("http://192.168.1.61:8081/static/index.html#");
 		  driver.manage().window().maximize();
 		  
 		  Thread.sleep(10000);
@@ -44,12 +44,13 @@ public class BOM {
 		  
 		  WebElement txtPwd=driver.findElement(By.xpath("//*[@id='password-inputEl']"));
 		  txtPwd.sendKeys("123456");
+		  Thread.sleep(1000);
 		  
 		  WebElement btnLogin=driver.findElement(By.xpath("//*[@id=\"button-1020\"]"));
 		  btnLogin.click();
 		  
 		  Thread.sleep(5000);
-		  WebElement mnuPartName=driver.findElement(By.xpath("//*[@id=\"shortcutdataview\"]/ul/div/li[5]"));
+		  WebElement mnuPartName=driver.findElement(By.xpath("//*[@id=\"shortcutdataview\"]/ul/div/li[1]"));
 		  mnuPartName.click();
 		  System.out.println("==Open part name maintanence page");
 		  
@@ -120,7 +121,7 @@ public class BOM {
 		  	}*/
 		  }
 		  
-		  WebElement inputGroupID=driver.findElement(By.xpath("//*[@id=\"ext-gen1439\"]/div"));
+		  WebElement inputGroupID=driver.findElement(By.xpath("//*[@id=\"ext-gen1452\"]/div"));
 		  inputGroupID.click();
 		  Thread.sleep(1000);
 		  

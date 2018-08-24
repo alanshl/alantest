@@ -2,44 +2,24 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="41787" started-at="2018-07-10T07:05:12Z" finished-at="2018-07-10T07:05:54Z">
+  <suite name="Default suite" duration-ms="42803" started-at="2018-08-24T08:05:22Z" finished-at="2018-08-24T08:06:05Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="41787" started-at="2018-07-10T07:05:12Z" finished-at="2018-07-10T07:05:54Z">
-      <class name="com.selenium.test.BOM">
-        <test-method status="PASS" signature="beforeTest()[pri:0, instance:com.selenium.test.BOM@3a82f6ef]" name="beforeTest" is-config="true" duration-ms="7" started-at="2018-07-10T15:05:12Z" finished-at="2018-07-10T15:05:12Z">
+    <test name="Default test" duration-ms="42803" started-at="2018-08-24T08:05:22Z" finished-at="2018-08-24T08:06:05Z">
+      <class name="bydbom.test.VPPDManagement">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:bydbom.test.VPPDManagement@4b9e255]" name="beforeTest" is-config="true" duration-ms="6" started-at="2018-08-24T16:05:22Z" finished-at="2018-08-24T16:05:22Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.selenium.test.BOM@3a82f6ef]" name="beforeMethod" is-config="true" duration-ms="1" started-at="2018-07-10T15:05:12Z" finished-at="2018-07-10T15:05:12Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="f(java.lang.Integer, java.lang.String)[pri:0, instance:com.selenium.test.BOM@3a82f6ef]" name="f" duration-ms="41765" started-at="2018-07-10T15:05:12Z" data-provider="dp" finished-at="2018-07-10T15:05:54Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[1]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[a]]>
-              </value>
-            </param>
-          </params>
+        <test-method status="PASS" signature="f()[pri:0, instance:bydbom.test.VPPDManagement@4b9e255]" name="f" duration-ms="42786" started-at="2018-08-24T16:05:22Z" finished-at="2018-08-24T16:06:05Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- f -->
-        <test-method status="PASS" signature="afterMethod()[pri:0, instance:com.selenium.test.BOM@3a82f6ef]" name="afterMethod" is-config="true" duration-ms="0" started-at="2018-07-10T15:05:54Z" finished-at="2018-07-10T15:05:54Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="afterTest()[pri:0, instance:com.selenium.test.BOM@3a82f6ef]" name="afterTest" is-config="true" duration-ms="0" started-at="2018-07-10T15:05:54Z" finished-at="2018-07-10T15:05:54Z">
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:bydbom.test.VPPDManagement@4b9e255]" name="afterTest" is-config="true" duration-ms="0" started-at="2018-08-24T16:06:05Z" finished-at="2018-08-24T16:06:05Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-      </class> <!-- com.selenium.test.BOM -->
+      </class> <!-- bydbom.test.VPPDManagement -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
