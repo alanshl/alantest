@@ -2,24 +2,24 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="42803" started-at="2018-08-24T08:05:22Z" finished-at="2018-08-24T08:06:05Z">
+  <suite name="Default suite" duration-ms="34922" started-at="2018-08-30T09:47:31Z" finished-at="2018-08-30T09:48:06Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="42803" started-at="2018-08-24T08:05:22Z" finished-at="2018-08-24T08:06:05Z">
-      <class name="bydbom.test.VPPDManagement">
-        <test-method status="PASS" signature="beforeTest()[pri:0, instance:bydbom.test.VPPDManagement@4b9e255]" name="beforeTest" is-config="true" duration-ms="6" started-at="2018-08-24T16:05:22Z" finished-at="2018-08-24T16:05:22Z">
+    <test name="Default test" duration-ms="34922" started-at="2018-08-30T09:47:31Z" finished-at="2018-08-30T09:48:06Z">
+      <class name="bydbom.test.VCOPublishVPPD">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:bydbom.test.VCOPublishVPPD@4b9e255]" name="beforeTest" is-config="true" duration-ms="6" started-at="2018-08-30T17:47:31Z" finished-at="2018-08-30T17:47:31Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="f()[pri:0, instance:bydbom.test.VPPDManagement@4b9e255]" name="f" duration-ms="42786" started-at="2018-08-24T16:05:22Z" finished-at="2018-08-24T16:06:05Z">
+        <test-method status="PASS" signature="f()[pri:0, instance:bydbom.test.VCOPublishVPPD@4b9e255]" name="f" duration-ms="34906" started-at="2018-08-30T17:47:31Z" finished-at="2018-08-30T17:48:06Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- f -->
-        <test-method status="PASS" signature="afterTest()[pri:0, instance:bydbom.test.VPPDManagement@4b9e255]" name="afterTest" is-config="true" duration-ms="0" started-at="2018-08-24T16:06:05Z" finished-at="2018-08-24T16:06:05Z">
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:bydbom.test.VCOPublishVPPD@4b9e255]" name="afterTest" is-config="true" duration-ms="0" started-at="2018-08-30T17:48:06Z" finished-at="2018-08-30T17:48:06Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-      </class> <!-- bydbom.test.VPPDManagement -->
+      </class> <!-- bydbom.test.VCOPublishVPPD -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

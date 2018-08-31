@@ -29,7 +29,7 @@ public class VPPDManagement extends BTest {
 		  super.LoginBOM();
 		  Thread.sleep(5000);
 		  
-		//open product spectrum window
+		  //open product structure window
 		  MainPage mainPage=new MainPage(super.driver);
 		  mainPage.hoverMenu("产品管理");
 		  Thread.sleep(2000);
