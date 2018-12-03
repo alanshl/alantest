@@ -11,6 +11,9 @@ import bydbom.common.BCommonFunction;
 import bydbom.common.EnvJsonFile;
 import bydbom.page.LoginPage;
 
+
+
+
 public class BTest {
 	protected WebDriver driver;
 	protected BCommonFunction bcf;
@@ -35,6 +38,7 @@ public class BTest {
 			  
 			  driver.get(envURL);
 			  driver.manage().window().maximize();
+			  driver.manage().window().fullscreen();
 		}
 		catch(Exception e)
 		{
@@ -64,4 +68,6 @@ public class BTest {
 	{
 		this.driver.quit();
 	}
+	
+	
 }

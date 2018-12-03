@@ -9,22 +9,32 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 
-public class  BPage {
+public class BTabSection {
 	protected List<WebElement> elementList;
 	protected Actions action;
 	protected WebDriver driver;
-	public BMainMenu mainMenu;
-	public BFunctionSection functionSection;
-	public BMainDataSection mainDataSection;
-	public BQuerySection querySection;
 	
-	public BPage(WebDriver driver) {
+	public BTabSection(WebDriver driver) {
 		this.driver=driver;
 		PageFactory.initElements(new AjaxElementLocatorFactory(driver, 5), this);
 		action=new Actions(this.driver);
-		mainMenu=new BMainMenu(driver);
-		functionSection=new BFunctionSection(driver);
-		mainDataSection =new BMainDataSection(driver);
-		querySection=new BQuerySection(driver);
 	}
+	
+	/**
+     * click the tab
+     * @param tabName
+     */
+	public void clickTabPage(String tabName) {
+		elementList=this.driver.findElements(By.xpath("//span[contains(@id,'tab') and contains(@id, 'btnInner') and contains(@class, 'tab')]"));
+		int i;
+		for(i=0;i<elementList.size();i++)
+		{			
+	        if(elementList.get(i).getText().contains(tabName))
+	        {
+	        	elementList.get(i).click();
+	        	break;
+	        }
+		}
+	}
+
 }
