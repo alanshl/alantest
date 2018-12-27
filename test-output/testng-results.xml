@@ -2,24 +2,24 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="67320" started-at="2018-11-21T07:52:41Z" finished-at="2018-11-21T07:53:48Z">
+  <suite name="Default suite" duration-ms="75383" started-at="2018-12-27T01:41:28Z" finished-at="2018-12-27T01:42:43Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="67320" started-at="2018-11-21T07:52:41Z" finished-at="2018-11-21T07:53:48Z">
-      <class name="bydbom.test.VPPDManagement">
-        <test-method status="PASS" signature="beforeTest()[pri:0, instance:bydbom.test.VPPDManagement@130f889]" name="beforeTest" is-config="true" duration-ms="7" started-at="2018-11-21T15:52:41Z" finished-at="2018-11-21T15:52:41Z">
+    <test name="Default test" duration-ms="75383" started-at="2018-12-27T01:41:28Z" finished-at="2018-12-27T01:42:43Z">
+      <class name="bydbom.test.EBOMManagement">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:bydbom.test.EBOMManagement@33b37288]" name="beforeTest" is-config="true" duration-ms="7" started-at="2018-12-27T09:41:28Z" finished-at="2018-12-27T09:41:28Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="f()[pri:0, instance:bydbom.test.VPPDManagement@130f889]" name="f" duration-ms="67270" started-at="2018-11-21T15:52:41Z" finished-at="2018-11-21T15:53:48Z">
+        <test-method status="PASS" signature="EBOMAddPart()[pri:0, instance:bydbom.test.EBOMManagement@33b37288]" name="EBOMAddPart" duration-ms="75366" started-at="2018-12-27T09:41:28Z" finished-at="2018-12-27T09:42:43Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- f -->
-        <test-method status="PASS" signature="afterTest()[pri:0, instance:bydbom.test.VPPDManagement@130f889]" name="afterTest" is-config="true" duration-ms="33" started-at="2018-11-21T15:53:48Z" finished-at="2018-11-21T15:53:48Z">
+        </test-method> <!-- EBOMAddPart -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:bydbom.test.EBOMManagement@33b37288]" name="afterTest" is-config="true" duration-ms="0" started-at="2018-12-27T09:42:43Z" finished-at="2018-12-27T09:42:43Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-      </class> <!-- bydbom.test.VPPDManagement -->
+      </class> <!-- bydbom.test.EBOMManagement -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

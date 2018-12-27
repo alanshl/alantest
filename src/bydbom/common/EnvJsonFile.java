@@ -3,7 +3,8 @@ package bydbom.common;
 public enum EnvJsonFile {
 	
 	BASICFILE("\\src\\bydbom\\configuration\\basic_parameters.json"),
-	TESTFILE("\\src\\bydbom\\configuration\\test_parameters.json");
+	TESTFILE("\\src\\bydbom\\configuration\\test_parameters.json"),
+	TESTDATA("\\src\\bydbom\\configuration\\test_data.json");
 	
 	private String desc;//÷–Œƒ√Ë ˆ
 

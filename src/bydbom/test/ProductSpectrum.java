@@ -1,6 +1,7 @@
 package bydbom.test;
 
 import org.testng.annotations.Test;
+import org.testng.asserts.Assertion;
 
 import bydbom.base.BTest;
 import bydbom.common.EnvJsonFile;
@@ -9,6 +10,10 @@ import bydbom.page.MainPage;
 import bydbom.page.ProductSpectrumPage;
 
 import org.testng.annotations.BeforeTest;
+
+import static org.testng.Assert.assertEquals;
+
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 
 /* Test: 产品型谱维护功能
@@ -34,7 +39,7 @@ public class ProductSpectrum extends BTest {
 		  mainPage.mainMenu.hoverMenu("产品管理");
 		  Thread.sleep(2000);
 		  mainPage.mainMenu.clickMenu("产品型谱管理");
-		  Thread.sleep(2000);
+		  Thread.sleep(5000);
 		  
 		  //edit product spectrum
 		  ProductSpectrumPage productSpectrumPage=new ProductSpectrumPage(super.driver);
@@ -142,11 +147,16 @@ public class ProductSpectrum extends BTest {
 		  Thread.sleep(1000);
 		  productSpectrumPage.mainDataSection.inputText("AT-saleMarket-"+super.bcf.getTimeStamp());
 		  
+		  productSpectrumPage.mainDataSection.openTextBox("dynamicConfig");
+		  Thread.sleep(1000);
+		  productSpectrumPage.mainDataSection.inputText("AT-dynamicConfig-"+super.bcf.getTimeStamp());
+		  
 		  productSpectrumPage.mainDataSection.openTextBox("status");
 		  Thread.sleep(1000);
 		  productSpectrumPage.mainDataSection.expandDropdownList();
 		  Thread.sleep(1000);
 		  productSpectrumPage.mainDataSection.selectOption("规划");
+		  
 
 		  
 		  //add basic configuration
@@ -183,11 +193,13 @@ public class ProductSpectrum extends BTest {
 		  
 		  productSpectrumPage.functionSection.clickButton("保存");
 		  Thread.sleep(1000);
-		  	  
+		  
+		  Assert.assertEquals(true, true);	  
 		  		  
 	  }
 	  catch(Exception e) {
 		  e.printStackTrace();
+		  Assert.assertEquals(false, true);
 	  }
 	  
   }

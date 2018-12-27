@@ -6,7 +6,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -25,8 +28,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 public class BCommonFunction {
-	private JsonNode node;
 	private ObjectMapper mapper=new ObjectMapper();
+	private Map<String, String> testData=new HashMap<String, String>();
 	
 	private final String EXCEL_XLS = "xls";  
     private final String EXCEL_XLSX = "xlsx";
@@ -34,7 +37,12 @@ public class BCommonFunction {
 	public static void main(String[] args)
 	{
 		BCommonFunction cf=new BCommonFunction();
-		//cf.readJasonFile(EnvJsonFile.BASICFILE);
+		//cf.readJasonFile(EnvJsonFile.TESTDATA);
+		//cf.getProperty("approver");
+		Map<String, String> testData1=new HashMap<String, String>();
+		testData1.put("approver3","shenhl");
+		testData1.put("test55", "cccc");
+		cf.writeJasonFile(EnvJsonFile.TESTDATA, testData1);
 		//cf.getProperty("integration");
 		
 		
@@ -46,10 +54,37 @@ public class BCommonFunction {
 			 	String jsonname;
 			  	jsonname=ejf.getDesc();
 			  	jsonpath=this.getProjectPath() + jsonname;
-			  	node =mapper.readValue(new File(jsonpath), JsonNode.class); 	
+			  	File file=new File(jsonpath);
+			  	if(file.exists())
+			  		testData=mapper.readValue(file, Map.class); 
+			  	else
+			  		System.out.println("file doesn't exist");
 		}
 		catch(Exception e) {
-			System.out.print(e);
+			System.out.println(e);
+		}
+	}
+	
+	public void writeJasonFile(EnvJsonFile ejf, Map<String, String> jasonData) {
+		try {
+			String jsonpath;
+		 	String jsonname;
+		  	jsonname=ejf.getDesc();
+			jsonpath=this.getProjectPath() + jsonname;
+			File file=new File(jsonpath);
+		  	if(file.exists()) {
+		  		testData=mapper.readValue(file, Map.class);
+		  		testData.putAll(jasonData);
+		  		mapper.writeValue(new File(jsonpath), testData);
+		  	}
+		  	else {
+		  		System.out.println("file doesn't exist, will create one to track the test data.");
+		  		mapper.writeValue(new File(jsonpath), jasonData);
+		  	}
+			
+		}
+		catch(Exception e) {
+			System.out.println(e);
 		}
 	}
 	
@@ -73,7 +108,7 @@ public class BCommonFunction {
 	//return the value basing on the name from json file
 	public String getProperty(String name) {
 		String value="";
-		value=node.get(name).toString().replaceAll("\"", "");
+		value=testData.get(name);
 		System.out.println(name + ":" + value);
 		return value;
 	}

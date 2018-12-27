@@ -99,6 +99,43 @@ public class BMainDataSection {
 	}
 	
 	/**
+	 * expand the dropdown list per label id
+	 * @param labelId
+	 */
+	public void expandDropdownList(String labelId) {
+		String temp="combo-" + labelId + "-inputEl";
+		WebElement element=this.driver.findElement(By.xpath("//input[contains(@id,'" + temp + "')]"));
+		element.click();
+	}
+	
+	/**
+	 * get the label ID per label name
+	 * @param labelName
+	 * @return label ID
+	 */
+	public String getLabelId(String labelName) {
+		String Id="";
+		String temp;
+		String xPath="//label[contains(@id, 'combo-')]";
+		elementList=this.driver.findElements(By.xpath(xPath));
+		
+				for(int i=0;i<elementList.size();i++)
+						  {
+						  	if(elementList.get(i).getText().contains(labelName))
+						  	{
+								temp=String.valueOf(elementList.get(i).getAttribute("id"));
+								System.out.println(temp);
+								int start=temp.indexOf("combo-")+"combo-".length();
+								int end=temp.indexOf("-labelEl");
+								Id=temp.substring(start, end);
+								System.out.println(Id);
+						  		break;
+						  	}
+						  }
+		return Id;
+	}
+	
+	/**
 	 * select the option from the dropdown list which is currently on focus
 	 * @param option
 	 */
@@ -160,6 +197,21 @@ public class BMainDataSection {
 						  	
 						  }
 		return Id;
+	}
+	
+	/**
+	 * click the link by the specific text
+	 * @param text
+	 */
+	public boolean clickLinkByText(String text) {
+		boolean result=true;
+		try {
+			this.driver.findElement(By.linkText(text)).click();
+		}
+		catch(Exception e){
+			result=false;
+		}
+		return result;
 	}
 
 }

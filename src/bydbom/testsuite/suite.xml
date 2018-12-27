@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="VPPD maintain and publish">
+    
+    <test name="VPPD Maintain">
+        <classes>
+            <class name="bydbom.test.VPPDManagement"/>
+        </classes>
+    </test>
+
+    <test name="Submit VCO">
+        <classes>
+            <class name="bydbom.test.VCOPublishVPPD"/>
+        </classes>
+    </test>
+    
+     <test name="Approve VCO">
+        <classes>
+            <class name="bydbom.test.ApproveChangeOrder"/>
+        </classes>
+    </test>
+    
+ 
+ 
+</suite>

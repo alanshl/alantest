@@ -17,6 +17,7 @@ public class  BPage {
 	public BFunctionSection functionSection;
 	public BMainDataSection mainDataSection;
 	public BQuerySection querySection;
+	public BChangeOrderWindow changeOrderWindow;
 	
 	public BPage(WebDriver driver) {
 		this.driver=driver;
@@ -26,5 +27,6 @@ public class  BPage {
 		functionSection=new BFunctionSection(driver);
 		mainDataSection =new BMainDataSection(driver);
 		querySection=new BQuerySection(driver);
+		changeOrderWindow=new BChangeOrderWindow(driver);
 	}
 }

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [VPPD maintain and publish]">
+  <test name="VPPD Maintain(failed)">
+    <classes>
+      <class name="bydbom.test.VPPDManagement">
+        <methods>
+          <include name="AddVPPD"/>
+          <include name="afterTest"/>
+          <include name="beforeTest"/>
+        </methods>
+      </class> <!-- bydbom.test.VPPDManagement -->
+      <class name="bydbom.test.ApproveChangeOrder">
+        <methods>
+          <include name="beforeTest"/>
+          <include name="afterTest"/>
+        </methods>
+      </class> <!-- bydbom.test.ApproveChangeOrder -->
+      <class name="bydbom.test.VCOPublishVPPD">
+        <methods>
+          <include name="beforeTest"/>
+          <include name="afterTest"/>
+        </methods>
+      </class> <!-- bydbom.test.VCOPublishVPPD -->
+    </classes>
+  </test> <!-- VPPD Maintain(failed) -->
+  <test name="Submit VCO(failed)">
+    <classes>
+      <class name="bydbom.test.VPPDManagement">
+        <methods>
+          <include name="afterTest"/>
+          <include name="beforeTest"/>
+        </methods>
+      </class> <!-- bydbom.test.VPPDManagement -->
+      <class name="bydbom.test.ApproveChangeOrder">
+        <methods>
+          <include name="beforeTest"/>
+          <include name="afterTest"/>
+        </methods>
+      </class> <!-- bydbom.test.ApproveChangeOrder -->
+      <class name="bydbom.test.VCOPublishVPPD">
+        <methods>
+          <include name="SubmitVCO"/>
+          <include name="beforeTest"/>
+          <include name="afterTest"/>
+        </methods>
+      </class> <!-- bydbom.test.VCOPublishVPPD -->
+    </classes>
+  </test> <!-- Submit VCO(failed) -->
+</suite> <!-- Failed suite [VPPD maintain and publish] -->

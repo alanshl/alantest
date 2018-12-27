@@ -49,19 +49,36 @@ public class BTest {
 	
 	public void LoginBOM() {
 		 try {
-			  LoginPage lPage=new LoginPage(this.driver);
-			  BCommonFunction bcf=new BCommonFunction();
-			  bcf.readJasonFile(EnvJsonFile.TESTFILE);
-			  String username=bcf.getProperty("username");
-			  String pwd=bcf.getProperty("pwd");
-			  lPage.InputUserName(username);
-			  lPage.InputPwd(pwd);
-			  Thread.sleep(1000);
-			  lPage.clickLoginButton();
-	} catch (InterruptedException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
+				  LoginPage lPage=new LoginPage(this.driver);
+				  BCommonFunction bcf=new BCommonFunction();
+				  bcf.readJasonFile(EnvJsonFile.TESTFILE);
+				  String username=bcf.getProperty("username");
+				  String pwd=bcf.getProperty("pwd");
+				  lPage.InputUserName(username);
+				  lPage.InputPwd(pwd);
+				  Thread.sleep(1000);
+				  lPage.clickLoginButton();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
+	
+	public void LoginBOMAsApprover() {
+		 try {
+				  LoginPage lPage=new LoginPage(this.driver);
+				  BCommonFunction bcf=new BCommonFunction();
+				  bcf.readJasonFile(EnvJsonFile.TESTFILE);
+				  String username=bcf.getProperty("approver");
+				  String pwd=bcf.getProperty("approverpwd");
+				  lPage.InputUserName(username);
+				  lPage.InputPwd(pwd);
+				  Thread.sleep(1000);
+				  lPage.clickLoginButton();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public void close()

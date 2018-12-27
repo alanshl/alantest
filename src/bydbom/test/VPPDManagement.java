@@ -9,6 +9,7 @@ import bydbom.page.MainPage;
 import bydbom.page.VPPDPage;
 
 import org.testng.annotations.BeforeTest;
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 
 /* Test: VPPDÎ¬»¤
@@ -19,16 +20,16 @@ import org.testng.annotations.AfterTest;
  */
 public class VPPDManagement extends BTest {
   @Test
-  public void f() {
+  public void AddVPPD() {
 	  try {
 		  
 		  //start BOM
 		  super.StartBOM(EnvJsonFile.BASICFILE, "integration");
-		  Thread.sleep(5000);
+		  Thread.sleep(10000);
 		
 		  //login BOM
 		  super.LoginBOM();
-		  Thread.sleep(5000);
+		  Thread.sleep(10000);
 		  
 		  //open product structure window
 		  MainPage mainPage=new MainPage(super.driver);
@@ -105,6 +106,7 @@ public class VPPDManagement extends BTest {
 	} catch (InterruptedException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
+		Assert.assertEquals(false, true);
 	}
 	  
 	  

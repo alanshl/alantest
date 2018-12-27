@@ -49,14 +49,42 @@ public class BMainMenu {
 	 * @return void
 	 */
 	public void clickMenu(String menu) {
-		elementList=this.driver.findElements(By.xpath("//*[contains(@id,'menuitem-')]"));
+		elementList=this.driver.findElements(By.xpath("//*[contains(@id,'menuitem-') and contains(@id, 'textEl')]"));
 		int i;
+		for(i=0;i<elementList.size();i++)
+				  {
+				  	if(elementList.get(i).getText().equals(menu))
+				  	{
+				  		if(!elementList.get(i).getAttribute("class").contains("right-arrow")) {
+				  			elementList.get(i).click();
+					  		break;
+				  		}
+				  	}
+				  }
+	}
+	
+	/**
+	 * click the main menu
+	 * @param menu: menu name
+	 * @param index: menu index when there is multiple menus with the same names, 1, 2, 3...
+	 */
+	public void clickMenu(String menu, int index) {
+		elementList=this.driver.findElements(By.xpath("//*[contains(@id,'menuitem-') and contains(@id, 'textEl')]"));
+		int i;
+		int menuCount=1;
 		for(i=0;i<elementList.size();i++)
 				  {
 				  	if(elementList.get(i).getText().contains(menu))
 				  	{
-						elementList.get(i).click();
-				  		break;
+				  		//if(index==menuCount) {
+				  			System.out.println(elementList.get(i).getText());
+				  			System.out.println(elementList.get(i).getAttribute("id"));
+				  			System.out.println(elementList.get(i).getAttribute("class"));
+				  			//elementList.get(i).click();
+					  		//break;
+				  		//}
+				  		//else
+				  			menuCount=menuCount+1;
 				  	}
 				  }
 	}
