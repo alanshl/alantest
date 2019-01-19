@@ -2,24 +2,24 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="75383" started-at="2018-12-27T01:41:28Z" finished-at="2018-12-27T01:42:43Z">
+  <suite name="Default suite" duration-ms="58874" started-at="2019-01-19T09:05:56Z" finished-at="2019-01-19T09:06:55Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="75383" started-at="2018-12-27T01:41:28Z" finished-at="2018-12-27T01:42:43Z">
-      <class name="bydbom.test.EBOMManagement">
-        <test-method status="PASS" signature="beforeTest()[pri:0, instance:bydbom.test.EBOMManagement@33b37288]" name="beforeTest" is-config="true" duration-ms="7" started-at="2018-12-27T09:41:28Z" finished-at="2018-12-27T09:41:28Z">
+    <test name="Default test" duration-ms="58874" started-at="2019-01-19T09:05:56Z" finished-at="2019-01-19T09:06:55Z">
+      <class name="bydbom.test.ApproveChangeOrder">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:bydbom.test.ApproveChangeOrder@33b37288]" name="beforeTest" is-config="true" duration-ms="7" started-at="2019-01-19T17:05:56Z" finished-at="2019-01-19T17:05:56Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="EBOMAddPart()[pri:0, instance:bydbom.test.EBOMManagement@33b37288]" name="EBOMAddPart" duration-ms="75366" started-at="2018-12-27T09:41:28Z" finished-at="2018-12-27T09:42:43Z">
+        <test-method status="PASS" signature="ApproveCO()[pri:0, instance:bydbom.test.ApproveChangeOrder@33b37288]" name="ApproveCO" duration-ms="58812" started-at="2019-01-19T17:05:56Z" finished-at="2019-01-19T17:06:55Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- EBOMAddPart -->
-        <test-method status="PASS" signature="afterTest()[pri:0, instance:bydbom.test.EBOMManagement@33b37288]" name="afterTest" is-config="true" duration-ms="0" started-at="2018-12-27T09:42:43Z" finished-at="2018-12-27T09:42:43Z">
+        </test-method> <!-- ApproveCO -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:bydbom.test.ApproveChangeOrder@33b37288]" name="afterTest" is-config="true" duration-ms="46" started-at="2019-01-19T17:06:55Z" finished-at="2019-01-19T17:06:55Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-      </class> <!-- bydbom.test.EBOMManagement -->
+      </class> <!-- bydbom.test.ApproveChangeOrder -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

@@ -3,6 +3,7 @@ package bydbom.test;
 import org.testng.annotations.Test;
 
 import bydbom.base.BTest;
+import bydbom.common.ColumnStyle;
 import bydbom.common.EnvJsonFile;
 import bydbom.common.ListViewStyle;
 import bydbom.page.MainPage;
@@ -40,68 +41,69 @@ public class VPPDManagement extends BTest {
 		  
 		  //select version to lookup VPPD
 		  VPPDPage vppdPage=new VPPDPage(super.driver);
-		  vppdPage.querySection.openComboxFromQuerySection("版本");
+		  vppdPage.option.openComboxFromQuerySection("版本");
 		  Thread.sleep(1000);
-		  vppdPage.querySection.selectLastOption();
+		  vppdPage.option.selectLastOption();
 		  Thread.sleep(1000);
-		  vppdPage.querySection.clickButton("查询");
+		  vppdPage.button.clickButton("查询");
 		  Thread.sleep(2000);
 		  
 		  try {
-		  vppdPage.functionSection.clickButton("进入编辑");
+		  vppdPage.button.clickButton("进入编辑");
 		  Thread.sleep(1000);
 		  }
 		  catch(Exception e) {
 			  //if there is no draft version, need to click prompt button then start editting
-			  vppdPage.functionSection.clickButton("升版");
+			  vppdPage.button.clickButton("升版");
 			  Thread.sleep(2000);
-			  vppdPage.querySection.openComboxFromQuerySection("版本");
+			  vppdPage.option.openComboxFromQuerySection("版本");
 			  Thread.sleep(1000);
-			  vppdPage.querySection.selectLastOption();
+			  vppdPage.option.selectLastOption();
 			  Thread.sleep(1000);
-			  vppdPage.querySection.clickButton("查询");
+			  vppdPage.button.clickButton("查询");
 			  Thread.sleep(2000);
-			  vppdPage.functionSection.clickButton("进入编辑");
+			  vppdPage.button.clickButton("进入编辑");
 			  Thread.sleep(1000);
 		  }
 		  
-		  vppdPage.mainDataSection.clickCheckBox(0,ListViewStyle.GRIDVIEW);
+		  vppdPage.option.clickCheckBox(0,ListViewStyle.GRIDVIEW);
 		  
 		  //add a node
-		  vppdPage.functionSection.clickButton("新增");
+		  vppdPage.button.clickButton("新增");
 		  Thread.sleep(1000);
-		  vppdPage.functionSection.clickChildButton("新增子节点");
+		  vppdPage.button.clickChildButton("新增子节点");
 		  Thread.sleep(1000);
 		  
 		  //select the newly added node to edit its attributes
-		  vppdPage.mainDataSection.clickCheckBox(1, ListViewStyle.GRIDVIEW);
+		  vppdPage.option.clickCheckBox(1, ListViewStyle.GRIDVIEW);
 		  Thread.sleep(1000);
 		  
 		  //add the code
-		  int columnId=vppdPage.mainDataSection.getColumnId("BYD");
-		  vppdPage.mainDataSection.openTextBox(columnId,1);
+		  int columnId=Integer.parseInt(vppdPage.otherElements.getColumnId(ColumnStyle.GRIDCOLUMN,"编码"));
+		  vppdPage.text.openTextBox(String.valueOf(columnId),1); 
 		  Thread.sleep(1000);
-		  vppdPage.mainDataSection.inputText(super.bcf.getTimeStamp());
+		  vppdPage.text.inputText(super.bcf.getTimeStamp());
 		  
 		  //add the simple code
-		  vppdPage.mainDataSection.openTextBox(columnId+1,1);
+		  vppdPage.text.openTextBox(String.valueOf(columnId+1),1);
 		  Thread.sleep(1000);
-		  vppdPage.mainDataSection.inputText(super.bcf.getTimeStamp());
+		  vppdPage.text.inputText(super.bcf.getTimeStamp());
 		  
 		  //add the function position code
-		  vppdPage.mainDataSection.openTextBox(columnId+2,1);
+		  vppdPage.text.openTextBox(String.valueOf(columnId+2),1);
 		  Thread.sleep(1000);
-		  vppdPage.mainDataSection.inputText(super.bcf.getTimeStamp());
+		  vppdPage.text.inputText(super.bcf.getTimeStamp());
 		  
 		  //add the Chinese description
-		  vppdPage.mainDataSection.openTextBox(columnId+3,1);
+		  vppdPage.text.openTextBox(String.valueOf(columnId+3),1);
 		  Thread.sleep(1000);
-		  vppdPage.mainDataSection.inputText(super.bcf.getTimeStamp());
+		  vppdPage.text.inputText(super.bcf.getTimeStamp());
 		  
 		  //save the VPPD
-		  vppdPage.functionSection.clickButton("保存");
+		  vppdPage.button.clickButton("保存");
 		  Thread.sleep(1000);
 		  
+		  Assert.assertEquals(vppdPage.otherElements.isEditFlagDisappeared(ListViewStyle.GRIDVIEW), true);
 		  
 	} catch (InterruptedException e) {
 		// TODO Auto-generated catch block

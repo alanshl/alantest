@@ -9,12 +9,18 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 
-public class BTabSection {
+
+/**
+ * cover the Tab on the change order page
+ * @author alans
+ *
+ */
+public class BTab {
 	protected List<WebElement> elementList;
 	protected Actions action;
 	protected WebDriver driver;
 	
-	public BTabSection(WebDriver driver) {
+	public BTab(WebDriver driver) {
 		this.driver=driver;
 		PageFactory.initElements(new AjaxElementLocatorFactory(driver, 5), this);
 		action=new Actions(this.driver);
@@ -24,7 +30,7 @@ public class BTabSection {
      * click the tab
      * @param tabName
      */
-	public void clickTabPage(String tabName) {
+	public void clickTab(String tabName) {
 		elementList=this.driver.findElements(By.xpath("//span[contains(@id,'tab') and contains(@id, 'btnInner') and contains(@class, 'tab')]"));
 		int i;
 		for(i=0;i<elementList.size();i++)
@@ -36,5 +42,4 @@ public class BTabSection {
 	        }
 		}
 	}
-
 }

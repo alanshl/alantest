@@ -32,7 +32,7 @@ public class ProductSpectrum extends BTest {
 		  
 		  //login BOM
 		  super.LoginBOM();
-		  Thread.sleep(5000);
+		  Thread.sleep(10000);
 		  
 		  //open product spectrum window
 		  MainPage mainPage=new MainPage(super.driver);
@@ -43,158 +43,159 @@ public class ProductSpectrum extends BTest {
 		  
 		  //edit product spectrum
 		  ProductSpectrumPage productSpectrumPage=new ProductSpectrumPage(super.driver);
-		  productSpectrumPage.mainDataSection.clickCheckBox(0,ListViewStyle.TREEVIEW);
-		  productSpectrumPage.functionSection.clickButton("进入编辑");
+		  productSpectrumPage.option.clickCheckBox(0,ListViewStyle.TREEVIEW);
+		  productSpectrumPage.button.clickButton("进入编辑");
 		  Thread.sleep(1000);
 		  
 		  //add car series
-		  productSpectrumPage.functionSection.clickButton("新增");
+		  productSpectrumPage.button.clickButton("新增");
 		  Thread.sleep(1000);
-		  productSpectrumPage.functionSection.clickChildButton("新增子节点");
+		  productSpectrumPage.button.clickChildButton("新增子节点");
 		  Thread.sleep(1000);
 		  
-		  productSpectrumPage.mainDataSection.openTextBox("nodeCode");
+		  productSpectrumPage.text.openTextBox("nodeCode");
 		  Thread.sleep(1000);
-		  productSpectrumPage.mainDataSection.inputText("AT-code-"+super.bcf.getTimeStamp());
+		  productSpectrumPage.text.inputText("AT-code-"+super.bcf.getTimeStamp());
 		  
-		  productSpectrumPage.mainDataSection.openTextBox("nodeName");
+		  productSpectrumPage.text.openTextBox("nodeName");
 		  Thread.sleep(1000);
-		  productSpectrumPage.mainDataSection.inputText("AT-name-"+super.bcf.getTimeStamp());
+		  productSpectrumPage.text.inputText("AT-name-"+super.bcf.getTimeStamp());
 		  
-		  productSpectrumPage.mainDataSection.openTextBox("description");
+		  productSpectrumPage.text.openTextBox("description");
 		  Thread.sleep(1000);
-		  productSpectrumPage.mainDataSection.inputText("AT-description-"+super.bcf.getTimeStamp());
+		  productSpectrumPage.text.inputText("AT-description-"+super.bcf.getTimeStamp());
 		  
 		  //add car type
-		  productSpectrumPage.functionSection.clickButton("新增");
+		  productSpectrumPage.button.clickButton("新增");
 		  Thread.sleep(1000);
-		  productSpectrumPage.functionSection.clickChildButton("新增子节点");
+		  productSpectrumPage.button.clickChildButton("新增子节点");
 		  Thread.sleep(1000);
 
-		  productSpectrumPage.mainDataSection.openTextBox("nodeCode");
+		  productSpectrumPage.text.openTextBox("nodeCode");
 		  Thread.sleep(1000);
-		  productSpectrumPage.mainDataSection.inputText(super.bcf.getTimeStamp().substring(4));
+		  productSpectrumPage.text.inputText(super.bcf.getTimeStamp().substring(4));
 		  
-		  productSpectrumPage.mainDataSection.openTextBox("nodeName");
+		  productSpectrumPage.text.openTextBox("nodeName");
 		  Thread.sleep(1000);
-		  productSpectrumPage.mainDataSection.inputText("AT-name-"+super.bcf.getTimeStamp());
+		  productSpectrumPage.text.inputText("AT-name-"+super.bcf.getTimeStamp());
 		  
-		  productSpectrumPage.mainDataSection.openTextBox("description");
+		  productSpectrumPage.text.openTextBox("description");
 		  Thread.sleep(1000);
-		  productSpectrumPage.mainDataSection.inputText("AT-description-"+super.bcf.getTimeStamp());
+		  productSpectrumPage.text.inputText("AT-description-"+super.bcf.getTimeStamp());
 		  
-		  productSpectrumPage.mainDataSection.openTextBox("fuelType");
+		  productSpectrumPage.text.openTextBox("fuelType");
 		  Thread.sleep(1000);
-		  productSpectrumPage.mainDataSection.expandDropdownList();
+		  productSpectrumPage.option.expandDropdownList();
 		  Thread.sleep(1000);
-		  productSpectrumPage.mainDataSection.selectOption("燃油");
+		  productSpectrumPage.option.selectOption("燃油");
 		  
-		  productSpectrumPage.mainDataSection.openTextBox("upgrading");
+		  productSpectrumPage.text.openTextBox("upgrading");
 		  Thread.sleep(1000);
-		  productSpectrumPage.mainDataSection.inputText("AT-upgrading-"+super.bcf.getTimeStamp());
+		  productSpectrumPage.text.inputText("AT-upgrading-"+super.bcf.getTimeStamp());
 		  
 		  //add expected go-live year
-		  productSpectrumPage.functionSection.clickButton("新增");
+		  productSpectrumPage.button.clickButton("新增");
 		  Thread.sleep(1000);
-		  productSpectrumPage.functionSection.clickChildButton("新增子节点");
-		  Thread.sleep(1000);
-		  
-		  productSpectrumPage.mainDataSection.openTextBox("nodeCode");
-		  Thread.sleep(1000);
-		  productSpectrumPage.mainDataSection.inputText("AT-code-"+super.bcf.getTimeStamp());
-		  
-		  productSpectrumPage.mainDataSection.openTextBox("nodeName");
-		  Thread.sleep(1000);
-		  productSpectrumPage.mainDataSection.inputText("AT-name-"+super.bcf.getTimeStamp());
-		  
-		  productSpectrumPage.mainDataSection.openTextBox("description");
-		  Thread.sleep(1000);
-		  productSpectrumPage.mainDataSection.inputText("AT-description-"+super.bcf.getTimeStamp());
-		  
-		  productSpectrumPage.mainDataSection.openTextBox("status");
-		  Thread.sleep(1000);
-		  productSpectrumPage.mainDataSection.expandDropdownList();
-		  Thread.sleep(1000);
-		  productSpectrumPage.mainDataSection.selectOption("规划");
+		  productSpectrumPage.button.clickChildButton("新增子节点");
 		  Thread.sleep(1000);
 		  
-		  productSpectrumPage.mainDataSection.openTextBox("firstPlant");
+		  productSpectrumPage.text.openTextBox("nodeCode");
 		  Thread.sleep(1000);
-		  productSpectrumPage.mainDataSection.expandDropdownList();
+		  productSpectrumPage.text.inputText("AT-code-"+super.bcf.getTimeStamp());
+		  
+		  productSpectrumPage.text.openTextBox("nodeName");
 		  Thread.sleep(1000);
-		  productSpectrumPage.mainDataSection.SelectCheckboxOption("深圳Y");
+		  productSpectrumPage.text.inputText("AT-name-"+super.bcf.getTimeStamp());
+		  
+		  productSpectrumPage.text.openTextBox("description");
+		  Thread.sleep(1000);
+		  productSpectrumPage.text.inputText("AT-description-"+super.bcf.getTimeStamp());
+		  
+		  productSpectrumPage.text.openTextBox("status");
+		  Thread.sleep(1000);
+		  productSpectrumPage.option.expandDropdownList();
+		  Thread.sleep(1000);
+		  productSpectrumPage.option.selectOption("规划");
+		  Thread.sleep(1000);
+		  
+		  productSpectrumPage.text.openTextBox("firstPlant");
+		  Thread.sleep(1000);
+		  productSpectrumPage.option.expandDropdownList();
+		  Thread.sleep(1000);
+		  productSpectrumPage.option.SelectAllCheckboxOption();
 		  
 		  
 		  //add power configuration
-		  productSpectrumPage.functionSection.clickButton("新增");
+		  productSpectrumPage.button.clickButton("新增");
 		  Thread.sleep(1000);
-		  productSpectrumPage.functionSection.clickChildButton("新增子节点");
+		  productSpectrumPage.button.clickChildButton("新增子节点");
 		  Thread.sleep(1000);
 		  
-		  productSpectrumPage.mainDataSection.openTextBox("nodeCode");
+		  productSpectrumPage.text.openTextBox("nodeCode");
 		  Thread.sleep(1000);
-		  productSpectrumPage.mainDataSection.inputText(super.bcf.getTimeStamp().substring(4));
+		  productSpectrumPage.text.inputText(super.bcf.getTimeStamp().substring(4));
 		  
-		  productSpectrumPage.mainDataSection.openTextBox("nodeName");
+		  productSpectrumPage.text.openTextBox("nodeName");
 		  Thread.sleep(1000);
-		  productSpectrumPage.mainDataSection.inputText("AT-name-"+super.bcf.getTimeStamp());
+		  productSpectrumPage.text.inputText("AT-name-"+super.bcf.getTimeStamp());
 		  
-		  productSpectrumPage.mainDataSection.openTextBox("description");
+		  productSpectrumPage.text.openTextBox("description");
 		  Thread.sleep(1000);
-		  productSpectrumPage.mainDataSection.inputText("AT-description-"+super.bcf.getTimeStamp());
+		  productSpectrumPage.text.inputText("AT-description-"+super.bcf.getTimeStamp());
 		  
-		  productSpectrumPage.mainDataSection.openTextBox("saleMarket");
+		  productSpectrumPage.text.openTextBox("saleMarket");
 		  Thread.sleep(1000);
-		  productSpectrumPage.mainDataSection.inputText("AT-saleMarket-"+super.bcf.getTimeStamp());
+		  productSpectrumPage.text.inputText("AT-saleMarket-"+super.bcf.getTimeStamp());
 		  
-		  productSpectrumPage.mainDataSection.openTextBox("dynamicConfig");
+		  productSpectrumPage.text.openTextBox("dynamicConfig");
 		  Thread.sleep(1000);
-		  productSpectrumPage.mainDataSection.inputText("AT-dynamicConfig-"+super.bcf.getTimeStamp());
+		  productSpectrumPage.text.inputText("AT-dynamicConfig-"+super.bcf.getTimeStamp());
 		  
-		  productSpectrumPage.mainDataSection.openTextBox("status");
+		  productSpectrumPage.text.openTextBox("status");
 		  Thread.sleep(1000);
-		  productSpectrumPage.mainDataSection.expandDropdownList();
+		  productSpectrumPage.option.expandDropdownList();
 		  Thread.sleep(1000);
-		  productSpectrumPage.mainDataSection.selectOption("规划");
+		  productSpectrumPage.option.selectOption("规划");
 		  
 
 		  
 		  //add basic configuration
-		  productSpectrumPage.functionSection.clickButton("新增");
+		  productSpectrumPage.button.clickButton("新增");
 		  Thread.sleep(1000);
-		  productSpectrumPage.functionSection.clickChildButton("新增子节点");
-		  Thread.sleep(1000);
-		  
-		  productSpectrumPage.mainDataSection.openTextBox("nodeCode");
-		  Thread.sleep(1000);
-		  productSpectrumPage.mainDataSection.inputText("AT-code-"+super.bcf.getTimeStamp());
-		  
-		  productSpectrumPage.mainDataSection.openTextBox("nodeName");
-		  Thread.sleep(1000);
-		  productSpectrumPage.mainDataSection.inputText("AT-name-"+super.bcf.getTimeStamp());
-		  
-		  productSpectrumPage.mainDataSection.openTextBox("description");
-		  Thread.sleep(1000);
-		  productSpectrumPage.mainDataSection.inputText("AT-description-"+super.bcf.getTimeStamp());
-		  
-		  productSpectrumPage.mainDataSection.openTextBox("status");
-		  Thread.sleep(1000);
-		  productSpectrumPage.mainDataSection.expandDropdownList();
-		  Thread.sleep(1000);
-		  productSpectrumPage.mainDataSection.selectOption("规划");
-		  
-		  productSpectrumPage.mainDataSection.openTextBox("configLevel");
-		  Thread.sleep(1000);
-		  productSpectrumPage.mainDataSection.inputText("AT-configLevel-"+super.bcf.getTimeStamp());
-		  
-		  productSpectrumPage.mainDataSection.openTextBox("announcementCode");
-		  Thread.sleep(1000);
-		  productSpectrumPage.mainDataSection.inputText("AT-announcementCode-"+super.bcf.getTimeStamp());
-		  
-		  productSpectrumPage.functionSection.clickButton("保存");
+		  productSpectrumPage.button.clickChildButton("新增子节点");
 		  Thread.sleep(1000);
 		  
-		  Assert.assertEquals(true, true);	  
+		  productSpectrumPage.text.openTextBox("nodeCode");
+		  Thread.sleep(1000);
+		  productSpectrumPage.text.inputText("AT-code-"+super.bcf.getTimeStamp());
+		  
+		  productSpectrumPage.text.openTextBox("nodeName");
+		  Thread.sleep(1000);
+		  productSpectrumPage.text.inputText("AT-name-"+super.bcf.getTimeStamp());
+		  
+		  productSpectrumPage.text.openTextBox("description");
+		  Thread.sleep(1000);
+		  productSpectrumPage.text.inputText("AT-description-"+super.bcf.getTimeStamp());
+		  
+		  productSpectrumPage.text.openTextBox("status");
+		  Thread.sleep(1000);
+		  productSpectrumPage.option.expandDropdownList();
+		  Thread.sleep(1000);
+		  productSpectrumPage.option.selectOption("规划");
+		  
+		  productSpectrumPage.text.openTextBox("configLevel");
+		  Thread.sleep(1000);
+		  productSpectrumPage.text.inputText("AT-configLevel-"+super.bcf.getTimeStamp());
+		  
+		  productSpectrumPage.text.openTextBox("announcementCode");
+		  Thread.sleep(1000);
+		  productSpectrumPage.text.inputText("AT-announcementCode-"+super.bcf.getTimeStamp());
+		  
+		  productSpectrumPage.button.clickButton("保存");
+		  Thread.sleep(2000);
+		  
+		  Assert.assertEquals(productSpectrumPage.otherElements.isEditFlagDisappeared(ListViewStyle.TREEVIEW), true);
+		  
 		  		  
 	  }
 	  catch(Exception e) {

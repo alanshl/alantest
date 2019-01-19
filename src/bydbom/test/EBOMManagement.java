@@ -4,7 +4,9 @@ import org.testng.annotations.Test;
 
 import bydbom.base.BTest;
 import bydbom.common.EnvJsonFile;
+import bydbom.common.LabelStyle;
 import bydbom.common.ListViewStyle;
+import bydbom.page.EBOMPage;
 import bydbom.page.MainPage;
 
 import org.testng.annotations.BeforeTest;
@@ -19,7 +21,8 @@ public class EBOMManagement extends BTest {
 		  //start BOM
 		  super.StartBOM(EnvJsonFile.BASICFILE, "integration");
 		  Thread.sleep(10000);
-		
+		  
+		  		
 		  //login BOM
 		  super.LoginBOM();
 		  Thread.sleep(10000);
@@ -31,14 +34,35 @@ public class EBOMManagement extends BTest {
 		  mainPage.mainMenu.hoverMenu("工程BOM管理");
 		  Thread.sleep(2000);
 		  mainPage.mainMenu.clickMenu("工程BOM管理");
-		  Thread.sleep(5000);
+		  Thread.sleep(10000);
+		  
+		  EBOMPage eBomPage=new EBOMPage(super.driver);
 		  
 		  //select project code and query the bom
-		  mainPage.mainDataSection.getLabelId("项目代号");
+		  String labelId=eBomPage.otherElements.getLabelId(LabelStyle.COMBO,"项目代号");
 		  super.bcf.readJasonFile(EnvJsonFile.TESTDATA);
-		  super.bcf.getProperty("ProjectCode");
+		  String prjectCode=super.bcf.getProperty("ProjectCode");
+		  eBomPage.option.expandDropdownList(labelId);
+		  Thread.sleep(2000);
+		  eBomPage.option.selectOption(prjectCode);
+		  Thread.sleep(1000);
+		  eBomPage.button.clickButton("查询");
+		  Thread.sleep(5000);
 		  
+		  eBomPage.option.clickCheckBox(0,ListViewStyle.GRIDVIEW);
 		  
+		  //add a part
+		  eBomPage.button.clickButton("进入编辑");
+		  Thread.sleep(1000);
+		  eBomPage.button.clickButton("新增");
+		  Thread.sleep(1000);
+		  eBomPage.button.clickChildButton("新增子节点");
+		  Thread.sleep(1000);
+		  
+		  //from the part selector, choose a part
+		  
+
+		  		  
 	} catch (InterruptedException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();

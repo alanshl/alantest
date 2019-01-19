@@ -3,13 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="bydbom.test.VCOPublishVPPD">
+      <class name="bydbom.test.ProductSpectrum">
         <methods>
-          <include name="SubmitVCO"/>
-          <include name="beforeTest"/>
+          <include name="ProductSpectrumManagement"/>
           <include name="afterTest"/>
+          <include name="beforeTest"/>
         </methods>
-      </class> <!-- bydbom.test.VCOPublishVPPD -->
+      </class> <!-- bydbom.test.ProductSpectrum -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

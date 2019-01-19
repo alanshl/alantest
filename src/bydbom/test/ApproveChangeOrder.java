@@ -3,6 +3,7 @@ package bydbom.test;
 import org.testng.annotations.Test;
 
 import bydbom.base.BTest;
+import bydbom.common.ColumnStyle;
 import bydbom.common.EnvJsonFile;
 import bydbom.page.MainPage;
 import bydbom.page.PendingTaskPage;
@@ -33,45 +34,45 @@ public class ApproveChangeOrder extends BTest {
 		  //click the change order link and keep approving the order till the approver completes his task
 		  PendingTaskPage pendingTaskPage=new PendingTaskPage(super.driver);
 		  super.bcf.readJasonFile(EnvJsonFile.TESTDATA);
-		  while(pendingTaskPage.mainDataSection.clickLinkByText(super.bcf.getProperty("ChangeOrder"))) {
+		  while(pendingTaskPage.link.clickLinkByText(super.bcf.getProperty("ChangeOrder"))) {
 			  Thread.sleep(2000);
 			  
 			  //click the approval tab
-			  pendingTaskPage.changeOrderWindow.clickTabPage("流程审批");
+			  pendingTaskPage.tab.clickTab("流程审批");
 			  Thread.sleep(2000);
 			  
 			  //check the approval option
-			  pendingTaskPage.changeOrderWindow.clickRowByText("批准");
+			  pendingTaskPage.otherElements.clickRowByText("批准");
 			  Thread.sleep(1000);
 			  
 			  //assign next approvers 
-			  String columnId=pendingTaskPage.changeOrderWindow.getColumnId("任务名称","gantlinkcolumn-");
-			  int approverCount=pendingTaskPage.changeOrderWindow.getLinkCount(columnId);
+			  String columnId=pendingTaskPage.otherElements.getColumnId(ColumnStyle.GANTLINKCOLUMN,"任务名称");
+			  int approverCount=pendingTaskPage.link.getLinkCount(columnId);
 			  
 			  if(approverCount!=0) {
-				  columnId=pendingTaskPage.changeOrderWindow.getColumnId("操作候选人");
+				  columnId=pendingTaskPage.otherElements.getColumnId(ColumnStyle.GRIDCOLUMN,"操作候选人");
 				  
 				  for (int i=0;i<approverCount;i++) {
-					  pendingTaskPage.changeOrderWindow.openTextBox(columnId, i);
+					  pendingTaskPage.text.openTextBox(columnId, i);
 					  Thread.sleep(1000);
-					  pendingTaskPage.changeOrderWindow.clickMagnifyingGlass();
+					  pendingTaskPage.button.clickMagnifyingGlass();
 					  Thread.sleep(1000);
 					  super.bcf.readJasonFile(EnvJsonFile.TESTFILE);
-					  pendingTaskPage.changeOrderWindow.clickCheckBoxOption(super.bcf.getProperty("approver"));
+					  pendingTaskPage.option.clickCheckBoxOption(super.bcf.getProperty("approver"));
 					  Thread.sleep(1000);
 					  //pendingTaskPage.clickMoveToButton(">>");
-					  pendingTaskPage.functionSection.clickButton(">>");
+					  pendingTaskPage.button.clickButton(">>");
 					  Thread.sleep(1000);
-					  pendingTaskPage.functionSection.clickButton("确定");
+					  pendingTaskPage.button.clickButton("确定");
 					  Thread.sleep(1000);
 				  }
 			  }
 			  
 			  
 			  //click the approve button
-			  pendingTaskPage.functionSection.clickButton("执行操作");
+			  pendingTaskPage.button.clickButton("执行操作");
 			  Thread.sleep(1000);
-			  pendingTaskPage.functionSection.clickButton("是");
+			  pendingTaskPage.button.clickButton("是");
 			  Thread.sleep(3000);
 			   
 		  }

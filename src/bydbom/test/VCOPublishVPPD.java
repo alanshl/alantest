@@ -4,6 +4,7 @@ import org.testng.annotations.Test;
 
 import bydbom.base.BTest;
 import bydbom.common.ChangeOrderCode;
+import bydbom.common.ColumnStyle;
 import bydbom.common.EnvJsonFile;
 import bydbom.page.MainPage;
 import bydbom.page.VCOPage;
@@ -38,46 +39,46 @@ public class VCOPublishVPPD extends BTest {
 		  
 		  //create a new VCO
 		  VCOPage vcoPage=new VCOPage(super.driver);
-		  vcoPage.functionSection.clickButton("新增");
+		  vcoPage.button.clickButton("新增");
 		  Thread.sleep(1000);
 		  
-		  vcoPage.functionSection.clickButton("保存");
+		  vcoPage.button.clickButton("保存");
 		  Thread.sleep(1000);
 		  
 		  //add the change content
-		  vcoPage.changeOrderWindow.clickTabPage("变更内容");
+		  vcoPage.tab.clickTab("变更内容");
 		  Thread.sleep(1000);
-		  vcoPage.functionSection.clickButton("整版关联");
+		  vcoPage.button.clickButton("整版关联");
 		  Thread.sleep(1000);
 		  
 		  //add approver
-		  vcoPage.changeOrderWindow.clickTabPage("流程审批");
+		  vcoPage.tab.clickTab("流程审批");
 		  Thread.sleep(1000);
-		  String columnId=vcoPage.changeOrderWindow.getColumnId("审批任务名称");
-		  int approverCount=vcoPage.changeOrderWindow.getLinkCount(columnId);
+		  String columnId=vcoPage.otherElements.getColumnId(ColumnStyle.GANTLINKCOLUMN,"审批任务名称");
+		  int approverCount=vcoPage.link.getLinkCount(columnId);
 		  
-		  columnId=vcoPage.changeOrderWindow.getColumnId("操作候选人");
+		  columnId=vcoPage.otherElements.getColumnId(ColumnStyle.GRIDCOLUMN,"操作候选人");
 		  
 		  for (int i=0;i<approverCount;i++) {
-			  vcoPage.changeOrderWindow.openTextBox(columnId, i);
+			  vcoPage.text.openTextBox(columnId, i);
 			  Thread.sleep(1000);
-			  vcoPage.changeOrderWindow.clickMagnifyingGlass();
+			  vcoPage.button.clickMagnifyingGlass();
 			  Thread.sleep(1000);
 			  super.bcf.readJasonFile(EnvJsonFile.TESTFILE);
-			  vcoPage.changeOrderWindow.clickCheckBoxOption(super.bcf.getProperty("approver"));
+			  vcoPage.option.clickCheckBoxOption(super.bcf.getProperty("approver"));
 			  Thread.sleep(1000);
-			  vcoPage.functionSection.clickButton(">>");
+			  vcoPage.button.clickButton(">>");
 			  Thread.sleep(1000);
-			  vcoPage.functionSection.clickButton("确定");
+			  vcoPage.button.clickButton("确定");
 			  Thread.sleep(1000);
 		  }
 			  
 		  //start approval process
-		  vcoPage.functionSection.clickButton("启动审批流程");
+		  vcoPage.button.clickButton("启动审批流程");
 		  Thread.sleep(5000);
 		  
 		  Map<String, String> testData=new HashMap<String, String>();
-		  testData.put("ChangeOrder",vcoPage.changeOrderWindow.getLatestChangeOrder(ChangeOrderCode.VCO));
+		  testData.put("ChangeOrder",vcoPage.otherElements.getLatestChangeOrder(ChangeOrderCode.VCO));
 		  super.bcf.writeJasonFile(EnvJsonFile.TESTDATA, testData);
 		  
 	  }

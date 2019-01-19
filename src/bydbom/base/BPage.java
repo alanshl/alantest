@@ -14,19 +14,23 @@ public class  BPage {
 	protected Actions action;
 	protected WebDriver driver;
 	public BMainMenu mainMenu;
-	public BFunctionSection functionSection;
-	public BMainDataSection mainDataSection;
-	public BQuerySection querySection;
-	public BChangeOrderWindow changeOrderWindow;
+	public BTab tab;
+	public BText text;
+	public BButton button;
+	public BOption option;
+	public BLink link;
+	public BOtherElements otherElements;
 	
 	public BPage(WebDriver driver) {
 		this.driver=driver;
 		PageFactory.initElements(new AjaxElementLocatorFactory(driver, 5), this);
 		action=new Actions(this.driver);
 		mainMenu=new BMainMenu(driver);
-		functionSection=new BFunctionSection(driver);
-		mainDataSection =new BMainDataSection(driver);
-		querySection=new BQuerySection(driver);
-		changeOrderWindow=new BChangeOrderWindow(driver);
+		tab=new BTab(driver);
+		text=new BText(driver);
+		button=new BButton(driver);
+		option=new BOption(driver);
+		link=new BLink(driver);
+		otherElements=new BOtherElements(driver);
 	}
 }
