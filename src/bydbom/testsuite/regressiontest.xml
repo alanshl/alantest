@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Regression Test">
+    <test name="Apply a new part">
+        <classes>
+            <class name="bydbom.test.PartApply"/>
+        </classes>
+    </test>
+    
+    <test name="Apply material number for the new part">
+        <classes>
+            <class name="bydbom.test.MaterialApply"/>
+        </classes>
+    </test>
+    
+    
+    <test name="Add the new part to eBom">
+        <classes>
+            <class name="bydbom.test.EBOMManagement"/>
+        </classes>
+    </test>
+
+ 
+    
+   
+	<listeners>
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+    </listeners>
+
+ 
+</suite>
