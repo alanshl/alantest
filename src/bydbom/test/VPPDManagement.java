@@ -6,6 +6,7 @@ import bydbom.base.BTest;
 import bydbom.common.ColumnStyle;
 import bydbom.common.EnvJsonFile;
 import bydbom.common.ListViewStyle;
+import bydbom.common.TextStyle;
 import bydbom.page.MainPage;
 import bydbom.page.VPPDPage;
 
@@ -80,24 +81,24 @@ public class VPPDManagement extends BTest {
 		  
 		  //add the code
 		  int columnId=Integer.parseInt(vppdPage.otherElements.getColumnId(ColumnStyle.GRIDCOLUMN,"±àÂë"));
-		  vppdPage.text.openTextBox(String.valueOf(columnId),1); 
+		  vppdPage.text.openTextBox(TextStyle.IDINTD, String.valueOf(columnId), 1);
 		  Thread.sleep(1000);
-		  vppdPage.text.inputText(super.bcf.getTimeStamp());
+		  vppdPage.text.inputText(TextStyle.TEXTFIELD,super.bcf.getTimeStamp());
 		  
 		  //add the simple code
-		  vppdPage.text.openTextBox(String.valueOf(columnId+1),1);
+		  vppdPage.text.openTextBox(TextStyle.IDINTD, String.valueOf(columnId+1), 1);
 		  Thread.sleep(1000);
-		  vppdPage.text.inputText(super.bcf.getTimeStamp());
+		  vppdPage.text.inputText(TextStyle.TEXTFIELD,super.bcf.getTimeStamp());
 		  
 		  //add the function position code
-		  vppdPage.text.openTextBox(String.valueOf(columnId+2),1);
+		  vppdPage.text.openTextBox(TextStyle.IDINTD, String.valueOf(columnId+2), 1);
 		  Thread.sleep(1000);
-		  vppdPage.text.inputText(super.bcf.getTimeStamp());
+		  vppdPage.text.inputText(TextStyle.TEXTFIELD,super.bcf.getTimeStamp());
 		  
 		  //add the Chinese description
-		  vppdPage.text.openTextBox(String.valueOf(columnId+3),1);
+		  vppdPage.text.openTextBox(TextStyle.IDINTD, String.valueOf(columnId+3), 1);
 		  Thread.sleep(1000);
-		  vppdPage.text.inputText(super.bcf.getTimeStamp());
+		  vppdPage.text.inputText(TextStyle.TEXTFIELD,super.bcf.getTimeStamp());
 		  
 		  //save the VPPD
 		  vppdPage.button.clickButton("±£´æ");

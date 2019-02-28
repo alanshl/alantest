@@ -5,6 +5,9 @@ import org.testng.annotations.Test;
 import bydbom.base.BTest;
 import bydbom.common.ColumnStyle;
 import bydbom.common.EnvJsonFile;
+import bydbom.common.TableStyle;
+import bydbom.common.TextStyle;
+import bydbom.common.TriggerStyle;
 import bydbom.page.MainPage;
 import bydbom.page.PendingTaskPage;
 
@@ -53,14 +56,15 @@ public class ApproveChangeOrder extends BTest {
 				  columnId=pendingTaskPage.otherElements.getColumnId(ColumnStyle.GRIDCOLUMN,"操作候选人");
 				  
 				  for (int i=0;i<approverCount;i++) {
-					  pendingTaskPage.text.openTextBox(columnId, i);
+					  pendingTaskPage.text.openTextBox(TextStyle.IDINTD, columnId, i);
 					  Thread.sleep(1000);
-					  pendingTaskPage.button.clickMagnifyingGlass();
+					  String tableId=pendingTaskPage.otherElements.getTableId(TableStyle.WORKFLOWTASKOWNERTRIGGERFIELD, 0);
+		
+					  pendingTaskPage.button.clickMagnifyingGlass(TableStyle.WORKFLOWTASKOWNERTRIGGERFIELD,tableId, i+1,2);
 					  Thread.sleep(1000);
 					  super.bcf.readJasonFile(EnvJsonFile.TESTFILE);
 					  pendingTaskPage.option.clickCheckBoxOption(super.bcf.getProperty("approver"));
 					  Thread.sleep(1000);
-					  //pendingTaskPage.clickMoveToButton(">>");
 					  pendingTaskPage.button.clickButton(">>");
 					  Thread.sleep(1000);
 					  pendingTaskPage.button.clickButton("确定");

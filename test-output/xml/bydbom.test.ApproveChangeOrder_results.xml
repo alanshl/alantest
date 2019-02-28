@@ -4,10 +4,10 @@
            failures="0"
            errors="0"
            skipped="0"
-           time="45.999">
+           time="56.655">
   <properties />
   
   
-            <testcase name="ApproveCO" time="45.999" classname="bydbom.test.ApproveChangeOrder" />
+            <testcase name="ApproveCO" time="56.655" classname="bydbom.test.ApproveChangeOrder" />
       
 </testsuite>

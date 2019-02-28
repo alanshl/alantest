@@ -6,6 +6,9 @@ import bydbom.base.BTest;
 import bydbom.common.ChangeOrderCode;
 import bydbom.common.ColumnStyle;
 import bydbom.common.EnvJsonFile;
+import bydbom.common.TableStyle;
+import bydbom.common.TextStyle;
+import bydbom.common.TriggerStyle;
 import bydbom.page.MainPage;
 import bydbom.page.VCOPage;
 
@@ -60,9 +63,10 @@ public class VCOPublishVPPD extends BTest {
 		  columnId=vcoPage.otherElements.getColumnId(ColumnStyle.GRIDCOLUMN,"²Ù×÷ºòÑ¡ÈË");
 		  
 		  for (int i=0;i<approverCount;i++) {
-			  vcoPage.text.openTextBox(columnId, i);
+			  vcoPage.text.openTextBox(TextStyle.IDINTD, columnId, i);
 			  Thread.sleep(1000);
-			  vcoPage.button.clickMagnifyingGlass();
+			  String tableId=vcoPage.otherElements.getTableId(TableStyle.WORKFLOWTASKOWNERTRIGGERFIELD, 0);
+			  vcoPage.button.clickMagnifyingGlass(TableStyle.WORKFLOWTASKOWNERTRIGGERFIELD,tableId, i+1,2);
 			  Thread.sleep(1000);
 			  super.bcf.readJasonFile(EnvJsonFile.TESTFILE);
 			  vcoPage.option.clickCheckBoxOption(super.bcf.getProperty("approver"));

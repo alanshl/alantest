@@ -70,6 +70,18 @@ public class BOption {
 	}
 	
 	/**
+	 * find the check box basing on the table structure
+	 * @param id: table id, indicate which table should be used
+	 * @param row: indicate which row should be used
+	 * @param col: indicate which col should be clicked
+	 */
+	public void clickCheckBox(String id, int row, int col) {
+		String xPath="//table[contains(@id, 'gridview') and contains(@id, '" + id + "')]/tbody/tr[" + row + "]/td[" + col + "]/div/div";
+		WebElement element=this.driver.findElement(By.xpath(xPath));
+		element.click();
+	}
+	
+	/**
 	 * cover: product spectrum page
 	 * expand dropdown list
 	 */

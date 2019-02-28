@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -22,9 +21,10 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.w3c.dom.Document;
 
-
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.sql.*;
 
 
 public class BCommonFunction {
@@ -34,19 +34,43 @@ public class BCommonFunction {
 	private final String EXCEL_XLS = "xls";  
     private final String EXCEL_XLSX = "xlsx";
     
+    private Connection conn;
+    private Statement stmt;
+    private ResultSet rs;
+    
 	public static void main(String[] args)
 	{
 		BCommonFunction cf=new BCommonFunction();
 		//cf.readJasonFile(EnvJsonFile.TESTDATA);
 		//cf.getProperty("approver");
-		Map<String, String> testData1=new HashMap<String, String>();
-		testData1.put("approver3","shenhl");
-		testData1.put("test55", "cccc");
-		cf.writeJasonFile(EnvJsonFile.TESTDATA, testData1);
+		//Map<String, String> testData1=new HashMap<String, String>();
+		//testData1.put("approver3","shenhl");
+		//testData1.put("test55", "cccc");
+		//cf.writeJasonFile(EnvJsonFile.TESTDATA, testData1);
 		//cf.getProperty("integration");
-		
+		//cf.connectDB();
+		cf.connectDB(EnvJsonFile.BASICFILE, "integration");
+		ResultSet rs=cf.queryData("select * from cust.cust_material_info cmi order by cmi.cust_material_info_id desc ");
+		ResultSetMetaData rsmd;
+		try {
+			rsmd = rs.getMetaData();
+			int columnCount;
+			columnCount = rsmd.getColumnCount();
+			while(rs.next()) {
+				for(int i=0;i<columnCount;i++) {
+					System.out.print(rs.getString(i+1)+"\t");
+				}
+				System.out.println();
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		cf.closeDB();
 		
 	}
+	
+	
 	public void readJasonFile(EnvJsonFile ejf) {
 		
 		try {
@@ -244,6 +268,107 @@ public class BCommonFunction {
     		    }   
     }
     
+    public void connectDB(EnvJsonFile ejf, String env) {
+    	this.readJasonFile(ejf);
+    	if(env.equals("integration")) {
+    		String url=this.getProperty("integrationDB");
+    		String user=this.getProperty("integrationDBUser");
+			String password=this.getProperty("integrationDBPWD");
+			try {
+				this.conn=DriverManager.getConnection(url, user, password);
+				this.stmt=this.conn.createStatement();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+    	}
+    }
+    
+    public void closeDB() {
+    	try {
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
+    
+    public ResultSet queryData(String sql) {
+    	try {
+			this.rs=this.stmt.executeQuery(sql);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	return rs;
+    }
+    
+    public int updateData(String sql) {
+    	int result=0;
+		try {
+			result = this.stmt.executeUpdate(sql);
+			this.conn.commit();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	return result;
+    }
+    
+    public void connectDB() {
+    	try {
+			Class.forName("oracle.jdbc.driver.OracleDriver").newInstance();
+			String url="jdbc:oracle:thin:@192.168.1.61:1621:xe";
+			String user="system";
+			String password="admin123";
+			Connection conn= DriverManager.getConnection(url,user,password);
+			Statement stmt = conn.createStatement();
+			String sql="select * from cust.cust_material_info cmi order by cmi.cust_material_info_id desc ";
+			ResultSet rs = stmt.executeQuery(sql);
+			
+			ResultSetMetaData rsmd = rs.getMetaData();
+			int columnCount=rsmd.getColumnCount();
+			while(rs.next()) {
+				for(int i=0;i<columnCount;i++) {
+					System.out.print(rs.getString(i+1)+"\t");
+				}
+				System.out.println();
+			}
+			
+			sql="update CUST.CUST_MATERIAL_INFO\r\n" + 
+					"set \r\n" + 
+					"CF_STATUS='APPLY_COMPLETE',\r\n" + 
+					"CF_NO='P'||(select to_char(sysdate,'yyyymmddhh24miss') from dual),\r\n" + 
+					"MAT_NO=(select to_char(sysdate,'yyyymmddhh24miss') from dual),\r\n" + 
+					"mat_desc='mat_desc' || (select to_char(sysdate,'yyyymmddhh24miss') from dual),\r\n" + 
+					"mat_endesc='mat_endesc' || (select to_char(sysdate,'yyyymmddhh24miss') from dual),\r\n" + 
+					"ACTIVE_STATUS='CURRENT'\r\n" + 
+					"where cust_material_info_id='21'";
+			
+			System.out.println(stmt.executeUpdate(sql));
+			
+			conn.commit();
+			
+			//System.out.println(stmt.execute("commit"));
+			
+			conn.close();
+			
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
+    }
     
 }
 

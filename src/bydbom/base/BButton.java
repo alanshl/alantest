@@ -1,5 +1,6 @@
 package bydbom.base;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -8,6 +9,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
+
+import bydbom.common.TableStyle;
+import bydbom.common.TriggerStyle;
 
 /**
  * elements 'button', 'tab'
@@ -38,12 +42,30 @@ public class BButton {
 				  {
 				  	if(elementList.get(i).getText().contains(button))
 				  	{
-						elementList.get(i).click();
+				  		elementList.get(i).click();
 				  		break;
 				  	}
 				  }
 	}
-
+	
+	/**
+	 * when there are several buttons with the same name, need to pass along with the index to indicate which one should be clicked
+	 * @param button: button name
+	 * @param index: the index which one should be clicked
+	 */
+	public void clickButton(String button, int index) {
+		elementList=this.driver.findElements(By.xpath("//span[contains(@id,'btnInnerEl')]"));
+		List<WebElement> elementList2=new ArrayList<WebElement>();
+		int i;
+		for(i=0;i<elementList.size();i++)
+		{
+			if(elementList.get(i).getText().contains(button))
+			{
+				elementList2.add(elementList.get(i));
+			}
+		}
+		elementList2.get(index).click();
+	}
 	
 	/**
 	 * click the child button by the specific button caption, 
@@ -65,37 +87,32 @@ public class BButton {
 	}
 	
 	/**
-	 * cover: change order page
 	 * click magnifying glass icon
+	 * @TriggerStyle: 
+	 * WORKFLOWTASKOWNERTRIGGERFIELD: the magnifying glass icon in approval selector process
+	 * GANTTRIGGERFIELD: the magnifying glass icon in eBom
 	 */
-	public void clickMagnifyingGlass() {
-		String xPath="//td[contains(@id,'workflowTaskOwnerTriggerField') and contains(@id, 'inputCell')]/../td/div[contains(@id, 'ext-gen') and contains(@class, 'search')]";
+	public void clickMagnifyingGlass(TableStyle ts, String tableId, int row, int col) {
+		String xPath="";
+		if(ts==TableStyle.WORKFLOWTASKOWNERTRIGGERFIELD) {
+			xPath="//table[contains(@id, 'workflowTaskOwnerTriggerField') and contains(@id, '" + tableId + "') and contains(@id, 'triggerWrap')]/tbody/tr[" + row + "]/td[" + col + "]/div"; 
+		}
+		else if(ts==TableStyle.GANGTRIGGERFIELD){
+			xPath="//table[contains(@id, 'ganttriggerfield') and contains(@id, '" + tableId + "') and contains(@id, 'triggerWrap')]/tbody/tr[" + row + "]/td[" + col + "]/div"; 
+		}
+		else if(ts==TableStyle.materialName2) {
+			xPath="//table[contains(@id, 'materialName2') and contains(@id, 'triggerWrap')]/tbody/tr[" + row + "]/td[" + col + "]/div"; 
+		}
 		WebElement element=this.driver.findElement(By.xpath(xPath));
 		element.click();
 	}
 	
-	/**
-	 * cover: approver selector
-	 * click move to button
-	 * @param: direction >> or <<
-	 */
-	public void clickMoveToButton(String direction) {
-		String xPath="//a[contains(@class, 'noicon') and contains(@id, 'button')]";
-		System.out.println(xPath);
+	
+	
+	public void clickCloseButton(int index) {
+		String xPath="//img[contains(@id, 'tool') and contains(@class, 'close')]";
 		elementList=this.driver.findElements(By.xpath(xPath));
-		System.out.println(elementList.size());
-		
-		int i;
-		for(i=0;i<elementList.size();i++)
-			{	
-			    if(elementList.get(i).getText().contains(direction)){
-			    	elementList.get(i).click();
-				    break;
-			    }
-			    
-			    
-			}
-			
+		elementList.get(index).click();
 	}
 	
 

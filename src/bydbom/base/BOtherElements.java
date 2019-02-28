@@ -13,6 +13,7 @@ import bydbom.common.ChangeOrderCode;
 import bydbom.common.ColumnStyle;
 import bydbom.common.LabelStyle;
 import bydbom.common.ListViewStyle;
+import bydbom.common.TableStyle;
 
 /**
  * cover: row, column
@@ -108,7 +109,7 @@ public class BOtherElements {
 	/**
 	 * cover: product spectrum page, VPPD page
 	 * judge if there is still the editing flag "+", if yes, not saving successfully, otherwise, saving successfully
-	 * @return true=existing, false=non-existing
+	 * @return true=non-existing, false=existing
 	 */
 	public boolean isEditFlagDisappeared(ListViewStyle lvs) {
 		boolean result=false;
@@ -129,6 +130,10 @@ public class BOtherElements {
 	/**
 	 * cover: eBom page
 	 * get the label ID per label name
+	 * @param LabelStyle ls
+	 * COMBO: the label xPath contains "combo-"
+	 * TEXTFIELD: the label xPath contains "textfield-"
+	 * GANTCODETYPECOMBOBOX: the label xPath contains "gantcodetypecombobox-"
 	 * @param labelName
 	 * @return label ID
 	 */
@@ -153,16 +158,79 @@ public class BOtherElements {
 						  	if(elementList.get(i).getText().contains(labelName))
 						  	{
 								temp=String.valueOf(elementList.get(i).getAttribute("id"));
-								System.out.println(temp);
 								int start=temp.indexOf(searchString)+searchString.length();
 								int end=temp.indexOf("-labelEl");
 								Id=temp.substring(start, end);
-								System.out.println(Id);
 						  		break;
 						  	}
 						  }
 		return Id;
 	}
 	
+	/**
+	 * get the table ID
+	 * @param index: when there are several tables, index is the key to decide which one should be returned
+	 * @return Id
+	 */
+	public String getTableId(TableStyle ts, int index) {
+		String Id="";
+		String temp;
+		String xPath="";
+		String searchString="";
+		
+		if(ts==TableStyle.GRIDVIEW) {
+			searchString="gridview-";
+			xPath="//table[contains(@id, '" + searchString + "')]";
+			elementList=this.driver.findElements(By.xpath(xPath));
+			temp=String.valueOf(elementList.get(index).getAttribute("id"));
+			int start=temp.indexOf(searchString)+searchString.length();
+			int end=temp.indexOf("-table");
+			Id=temp.substring(start, end);
+		}
+		else if(ts==TableStyle.GANGTRIGGERFIELD) {
+			searchString="ganttriggerfield-";
+			xPath="//table[contains(@id, '" + searchString + "') and contains(@id, 'triggerWrap')]";
+			elementList=this.driver.findElements(By.xpath(xPath));
+			temp=String.valueOf(elementList.get(index).getAttribute("id"));
+			int start=temp.indexOf(searchString)+searchString.length();
+			int end=temp.indexOf("-triggerWrap");
+			Id=temp.substring(start, end);
+		}
+		else if(ts==TableStyle.WORKFLOWTASKOWNERTRIGGERFIELD) {
+			searchString="workflowTaskOwnerTriggerField-";
+			xPath="//table[contains(@id, '" + searchString + "') and contains(@id, 'triggerWrap')]";
+			elementList=this.driver.findElements(By.xpath(xPath));
+			temp=String.valueOf(elementList.get(index).getAttribute("id"));
+			int start=temp.indexOf(searchString)+searchString.length();
+			int end=temp.indexOf("-triggerWrap");
+			Id=temp.substring(start, end);
+		}
+		else if(ts==TableStyle.COMBO) {
+			searchString="combo-";
+			xPath="//table[contains(@id, '" + searchString + "') and contains(@id, 'triggerWrap')]";
+			elementList=this.driver.findElements(By.xpath(xPath));
+			temp=String.valueOf(elementList.get(index).getAttribute("id"));
+			int start=temp.indexOf(searchString)+searchString.length();
+			int end=temp.indexOf("-triggerWrap");
+			Id=temp.substring(start, end);
+		}
+		else if(ts==TableStyle.GANTCODETYPECOMBOBOX) {
+			searchString="gantcodetypecombobox-";
+			xPath="//table[contains(@id, '" + searchString + "') and contains(@id, 'triggerWrap')]";
+			elementList=this.driver.findElements(By.xpath(xPath));
+			temp=String.valueOf(elementList.get(index).getAttribute("id"));
+			int start=temp.indexOf(searchString)+searchString.length();
+			int end=temp.indexOf("-triggerWrap");
+			Id=temp.substring(start, end);
+		}
+		
+		return Id;
+	}
+	
+	public String getWindowTitle() {
+		String xPath="//span[contains(@id, 'gantdetailwindow') and contains(@id, 'header') and contains(@id, 'textEl') and contains(@class, 'window-header')]";
+		WebElement element=this.driver.findElement(By.xpath(xPath));
+		return element.getText();
+	}
 	
 }

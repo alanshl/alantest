@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="VPPD maintain and publish">
+<suite name="Regression Test">
+    <test name="Product Spectrum maintain">
+        <classes>
+            <class name="bydbom.test.ProductSpectrum"/>
+        </classes>
+    </test>
     
     <test name="VPPD Maintain">
         <classes>
