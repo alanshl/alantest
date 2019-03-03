@@ -2,7 +2,6 @@
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="C:/software/jason jar/jackson-annotations-2.9.5.jar"/>
 	<classpathentry kind="lib" path="C:/Users/alans/eclipse/java-oxygen/eclipse/jars/poi-bin-4.0.0-20180907/poi-4.0.0/poi-4.0.0.jar"/>
 	<classpathentry kind="lib" path="C:/Users/alans/eclipse/java-oxygen/eclipse/jars/poi-bin-4.0.0-20180907/poi-4.0.0/poi-examples-4.0.0.jar"/>
 	<classpathentry kind="lib" path="C:/Users/alans/eclipse/java-oxygen/eclipse/jars/poi-bin-4.0.0-20180907/poi-4.0.0/poi-excelant-4.0.0.jar"/>
@@ -14,11 +13,11 @@
 	<classpathentry kind="lib" path="C:/Users/alans/eclipse/java-oxygen/eclipse/jars/commons-compress-1.18-bin/commons-compress-1.18/commons-compress-1.18.jar"/>
 	<classpathentry kind="lib" path="C:/Users/alans/eclipse/java-oxygen/eclipse/jars/Selenium/selenium-server-standalone-2.53.1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/alans/eclipse/java-oxygen/eclipse/jars/Selenium/selenium-java-2.53.1/selenium-2.53.1/libs/testng-6.9.9.jar"/>
-	<classpathentry kind="lib" path="C:/Users/alans/eclipse/java-oxygen/eclipse/jars/jason jar/jackson-core-2.9.5.jar"/>
-	<classpathentry kind="lib" path="C:/Users/alans/eclipse/java-oxygen/eclipse/jars/jason jar/jackson-databind-2.9.5.jar"/>
 	<classpathentry kind="lib" path="C:/Users/alans/eclipse/java-oxygen/eclipse/jars/reportng-1.1.4/reportng-1.1.4.jar"/>
 	<classpathentry kind="lib" path="C:/Users/alans/eclipse/java-oxygen/eclipse/jars/reportng-1.1.4/velocity-dep-1.4.jar"/>
 	<classpathentry kind="lib" path="C:/Users/alans/eclipse/java-oxygen/eclipse/jars/guice-3.0-rc3.jar/guice-3.0-rc3.jar"/>
 	<classpathentry kind="lib" path="C:/Users/alans/eclipse/java-oxygen/eclipse/jars/ojdbc5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/alans/eclipse/java-oxygen/eclipse/jars/jason jar/jackson-databind-2.9.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/alans/eclipse/java-oxygen/eclipse/jars/jason jar/jackson-core-2.9.5.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -88,9 +88,13 @@ public class BButton {
 	
 	/**
 	 * click magnifying glass icon
-	 * @TriggerStyle: 
+	 * @param TableStyle
 	 * WORKFLOWTASKOWNERTRIGGERFIELD: the magnifying glass icon in approval selector process
 	 * GANTTRIGGERFIELD: the magnifying glass icon in eBom
+	 * materialName2: the magnifying glass icon in material library
+	 * @param tableId: the ID of the table which contains the magnifying glass icon
+	 * @param row: the row number to locate the magnifying glass icon
+	 * @param col: the column number magnifying glass icon
 	 */
 	public void clickMagnifyingGlass(TableStyle ts, String tableId, int row, int col) {
 		String xPath="";

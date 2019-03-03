@@ -145,7 +145,7 @@ public class PartApply extends BTest{
 		  assertEquals(partApplyOrderPage.otherElements.isEditFlagDisappeared(ListViewStyle.GRIDVIEW), true);
 		  Thread.sleep(1000);
 		  
-		  //fetch the part number and save the number into jason file, it can be used for further testing, like eBOM
+		  //fetch the part number and save the number into json file, it can be used for further testing, like eBOM
 		  String partNum=partApplyOrderPage.text.getValueFromTextBox(TableStyle.GRIDVIEW, partApplicationTableId, 1, 5);
 		  Map<String, String> testData=new HashMap<String, String>();
 		  testData.put("PartNum",partNum);

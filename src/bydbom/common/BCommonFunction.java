@@ -24,6 +24,8 @@ import org.w3c.dom.Document;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+
+
 import java.sql.*;
 
 
@@ -89,7 +91,7 @@ public class BCommonFunction {
 		}
 	}
 	
-	public void writeJasonFile(EnvJsonFile ejf, Map<String, String> jasonData) {
+	public void writeJasonFile(EnvJsonFile ejf, Map<String, String> jsonData) {
 		try {
 			String jsonpath;
 		 	String jsonname;
@@ -98,12 +100,12 @@ public class BCommonFunction {
 			File file=new File(jsonpath);
 		  	if(file.exists()) {
 		  		testData=mapper.readValue(file, Map.class);
-		  		testData.putAll(jasonData);
+		  		testData.putAll(jsonData);
 		  		mapper.writeValue(new File(jsonpath), testData);
 		  	}
 		  	else {
 		  		System.out.println("file doesn't exist, will create one to track the test data.");
-		  		mapper.writeValue(new File(jsonpath), jasonData);
+		  		mapper.writeValue(new File(jsonpath), jsonData);
 		  	}
 			
 		}
